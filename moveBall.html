@@ -1,0 +1,94 @@
+/*------------------------------------------------*\
+MOVE BALL ON CLICK ACROSS CONTAINER IN HTML
+\*------------------------------------------------*/
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<style>
+.container{
+
+	width:400px;
+    height: 400px;
+    background-color: hsla(0,23%,34%,75%);
+    border-radius: 3ch;
+}
+
+#ball{
+	position: relative;
+    left: 0;
+    top: 0;
+	width: 40px;
+    height: 40px;
+    background-color: hsla(50, 10%, 10%, 70%);
+    border-radius: 50%;
+}
+
+#btn{
+	padding: 10px;
+    margin: 10px;
+}
+
+#btn:is(:hover, :focus){
+	color: blue;
+}
+
+</style>
+
+<div class='container'>
+	<div id='ball'></div>
+</div>
+
+<button id='btn'>click me to start</button>
+
+<script>
+
+// get ball id
+const ball = document.getElementById('ball');
+
+//get button id
+const btn = document.getElementById('btn');
+
+
+// set initial ball position
+let pos = 0;
+
+// frame variable setting
+let animationFrameId;
+
+// the ball shouldn't be moving initially
+let isMoving = false;
+
+const moveBall = function(){
+	// if the ball is at position 350 cancel the transit
+	if(ball.style.top === '360px'){
+    	cancelAnimationFrame(animationFrameId);
+        isMoving = false;
+    	return
+    }
+    
+    // update balls position
+  	pos = pos + 1; // more pos === more speed
+    ball.style.left = pos + 'px';
+    ball.style.top = pos + 'px';
+    
+    // request for next frame
+    animationFrameId = requestAnimationFrame(moveBall);
+}
+
+
+// now add an event listener to listen for clicks on the button 
+btn.addEventListener("click", function(){
+    // if the ball is not moving
+	if(!isMoving){
+    	// on click
+        isMoving =  true;
+        moveBall();
+    }
+});
+
+</script>
+
+</body>
+</html> 
