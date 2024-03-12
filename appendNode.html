@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="div1">
+
+</div>
+
+<script>
+
+// getting the div element
+const div = document.querySelector('div#div1');
+
+// creating the new P node
+const newPNode = document.createElement('p');
+
+// creating the text node
+const textNode = document.createTextNode('This is the appended child node: Hello World!');
+
+// appending the text node to the new P node
+newPNode.appendChild(textNode);
+
+// appending new P node to the div parent node
+div.appendChild(newPNode);
+
+</script>
+
+</body>
+</html>
