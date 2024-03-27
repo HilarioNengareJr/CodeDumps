@@ -1,0 +1,55 @@
+<div class='container'>
+  <label for='weather'> 
+    Select weather
+  </label>
+
+  <select id='weather'> 
+    <option>
+      --choose one-- 
+    </option>
+    <option value='snowy'>
+      snowy
+    </option>
+    <option value='sunny'>
+      sunny
+    </option>
+    <option value='cold'>
+      cold
+    </option>
+    <option value='rainy'>
+      rainy
+    </option>
+  </select>
+ <p></p>
+</div>
+
+<script>
+const select = document.querySelector("#weather"); 
+const paragraph = document.querySelector("p");
+
+function selectWeather() {
+  switch (select.value) {
+    case "rainy":
+      paragraph.textContent =
+        "Rain is falling outside; take a rain coat and an umbrella, and don't stay out for too long.";
+      break;
+    case "sunny":
+      paragraph.textContent =
+        "It is nice and sunny outside today. Wear shorts! Go to the beach, or the park, and get an ice cream.";
+      break;
+    case "snowy":
+      paragraph.textContent =
+        "The snow is coming down — it is freezing! Best to stay in with a cup of hot chocolate, or go build a snowman.";
+      break;
+    case "cold":
+      paragraph.textContent =
+        "It isn't raining, but the sky is grey and gloomy; it could turn any minute, so take a rain coat just in case.";
+      break;
+    default:
+      paragraph.textContent = "No weather selected yet!";
+      break;
+  }
+}
+
+select.addEventListener("change", selectWeather);
+</script>
