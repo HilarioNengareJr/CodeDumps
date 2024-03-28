@@ -1,0 +1,37 @@
+// script
+'use strict';
+
+const formElement = document.querySelector('[data-form]')
+const userName = document.querySelector('[data-username]');
+const passWord = document.querySelector('[data-password]');
+const message = document.querySelector('[data-message]');
+
+formElement.addEventListener('submit', e => {
+  e.preventDefault();
+  if(userName || passWord === ""){
+    message.textContent = "Username and password must not be empty!";
+  }
+  else{
+    messager.textContent = `Hello ${userName}` 
+  }
+});
+
+// html markUp
+<form action='' method='' data-form>
+  <fieldset>
+    <legend>Login Form</legend>
+    <div class='form-input'>
+      <label for='username'>Username</label>
+      <input type='text' name='username' id='username' data-username/>
+    </div>
+     <div class='form-input'>
+       <label for='password'>Password</label>
+       <input type='text' name='password' id='password' data-password/>
+    </div>
+  </fieldset>
+  <button>
+    submit
+  </button>
+  <span data-message></span>
+</form>
+
