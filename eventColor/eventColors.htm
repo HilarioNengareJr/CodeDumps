@@ -1,13 +1,1 @@
-// generating random background colors
-<script>
-const btn = document.querySelector('button');
 
-const random = number => Math.floor(Math.random() * number);
-
-btn.addEventListener("click", () => {
-  document.body.style.backgroundColor = `hsla(${random(360)}, ${random(100)}%, ${random(100)}%, 1`;
-});
-</script>
-
-// html 
-<button> Change color</button>
